@@ -1,0 +1,101 @@
+{
+  "name": "@boundaryjs/server",
+  "version": "0.1.0",
+  "description": "Error sink for HTTP APIs: anything you throw becomes RFC 9457 application/problem+json with a real status code. Debug context routes to your OTel span, never the wire.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./hono": {
+      "import": {
+        "types": "./dist/sinks/web.d.ts",
+        "default": "./dist/sinks/web.js"
+      },
+      "require": {
+        "types": "./dist/cjs/sinks/web.d.ts",
+        "default": "./dist/cjs/sinks/web.js"
+      }
+    },
+    "./express": {
+      "import": {
+        "types": "./dist/sinks/express.d.ts",
+        "default": "./dist/sinks/express.js"
+      },
+      "require": {
+        "types": "./dist/cjs/sinks/express.d.ts",
+        "default": "./dist/cjs/sinks/express.js"
+      }
+    },
+    "./fastify": {
+      "import": {
+        "types": "./dist/sinks/fastify.d.ts",
+        "default": "./dist/sinks/fastify.js"
+      },
+      "require": {
+        "types": "./dist/cjs/sinks/fastify.d.ts",
+        "default": "./dist/cjs/sinks/fastify.js"
+      }
+    },
+    "./koa": {
+      "import": {
+        "types": "./dist/sinks/koa.d.ts",
+        "default": "./dist/sinks/koa.js"
+      },
+      "require": {
+        "types": "./dist/cjs/sinks/koa.d.ts",
+        "default": "./dist/cjs/sinks/koa.js"
+      }
+    },
+    "./nest": {
+      "import": {
+        "types": "./dist/sinks/nest.d.ts",
+        "default": "./dist/sinks/nest.js"
+      },
+      "require": {
+        "types": "./dist/cjs/sinks/nest.d.ts",
+        "default": "./dist/cjs/sinks/nest.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.9.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/koa": "^2.15.0",
+    "express": "^5.1.0",
+    "fastify": "^5.0.0",
+    "hono": "^4.6.0",
+    "koa": "^3.2.1"
+  },
+  "keywords": [
+    "rfc9457",
+    "problem-details",
+    "problem+json",
+    "error-handling",
+    "http-errors",
+    "opentelemetry"
+  ]
+}

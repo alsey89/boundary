@@ -1,0 +1,14 @@
+{
+  "name": "@boundaryjs-examples/express-basic",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Minimal Express 5 API demonstrating the full Boundary error contract; boundary-conform runs against it in CI.",
+  "scripts": {
+    "start": "node server.mjs"
+  },
+  "dependencies": {
+    "@boundaryjs/server": "^0.1.0",
+    "express": "^5.1.0"
+  }
+}

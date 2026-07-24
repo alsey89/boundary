@@ -1,0 +1,28 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22, 24]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      # The CJS builds must load under require() — the path legacy
+      # Express/Nest apps take.
+      - run: npm run test:cjs
+      # The proof: the conformance suite runs black-box over real HTTP
+      # against the example server, exactly as it would against any backend.
+      - run: npm run conform:example

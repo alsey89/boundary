@@ -1,0 +1,9 @@
+{
+  "probes": {
+    "validation": { "method": "POST", "path": "/orders", "body": {} },
+    "rateLimited": { "path": "/rate-limited" },
+    "unavailable": { "path": "/unavailable" },
+    "redirect": { "path": "/old-path" },
+    "errors": [{ "path": "/boom" }, { "path": "/orders/nope" }]
+  }
+}

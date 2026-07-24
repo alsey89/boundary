@@ -1,0 +1,46 @@
+{
+  "name": "boundary-conform",
+  "version": "0.1.0",
+  "description": "Black-box CI suite that proves an HTTP API honors the Boundary error contract — any backend, any language. It only speaks HTTP.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "boundary-conform": "./dist/cli.js"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@boundaryjs/server": "^0.1.0",
+    "@types/express": "^5.0.0",
+    "express": "^5.1.0"
+  },
+  "keywords": [
+    "conformance",
+    "contract-testing",
+    "rfc9457",
+    "problem-details",
+    "ci"
+  ]
+}

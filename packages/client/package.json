@@ -1,0 +1,40 @@
+{
+  "name": "@boundaryjs/client",
+  "version": "0.1.0",
+  "description": "Fetch wrapper for RFC 9457 APIs. Errors throw. Failure policy is set per call site, defaulted per code.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "keywords": [
+    "fetch",
+    "rfc9457",
+    "problem-details",
+    "error-handling",
+    "retry",
+    "http-client"
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "boundary-monorepo",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Errors, debugging, and failure policy for HTTP APIs. Throw on the server, policy on the client, proof in CI.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build": "tsc -b packages/server packages/client packages/next packages/conform && npm run build:cjs",
+    "build:cjs": "tsc -p packages/server/tsconfig.cjs.json && tsc -p packages/client/tsconfig.cjs.json && tsc -p packages/next/tsconfig.cjs.json && tsc -p packages/conform/tsconfig.cjs.json && node scripts/stamp-cjs.mjs",
+    "clean": "tsc -b packages/server packages/client packages/next packages/conform --clean && rm -rf packages/*/dist",
+    "test": "vitest run",
+    "test:cjs": "node scripts/smoke-cjs.cjs",
+    "conform:example": "node scripts/conform-example.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.6.0",
+    "vitest": "^3.0.0"
+  }
+}

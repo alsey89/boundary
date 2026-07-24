@@ -1,0 +1,45 @@
+{
+  "name": "@boundaryjs/next",
+  "version": "0.1.0",
+  "description": "Build-time transform for Next.js App Router route handlers: write plain handlers, throw ApiError, get RFC 9457 problem+json — no wrapper code, no ceremony.",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./dist/cjs/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./loader": "./loader.cjs"
+  },
+  "files": [
+    "dist",
+    "loader.cjs",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -b"
+  },
+  "dependencies": {
+    "@boundaryjs/server": "^0.1.0"
+  },
+  "keywords": [
+    "nextjs",
+    "app-router",
+    "route-handlers",
+    "rfc9457",
+    "problem-details",
+    "error-handling"
+  ]
+}
